@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  ddns:
+    container_name: ddns
+    image: deliganli/route53-ddns:armv7
+    environment:
+     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+     - AWS_REGION=${AWS_REGION}
+     - ROUTE53_HOSTED_ZONE_ID=${ROUTE53_HOSTED_ZONE_ID}
+     - ROUTE53_DOMAIN=mydomain.com
+     - ROUTE53_TYPE=A
+     - ROUTE53_TTL=60
+     - SEND_EMAIL_SES=false
+     - UPDATE_FREQUENCY=60000
+     - SES_TO_ADDRESS=
+     - SES_FROM_ADDRESS=
